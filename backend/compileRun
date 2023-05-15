@@ -1,0 +1,65 @@
+//Reference file
+function sleep(ms) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
+}
+
+app.post("/compileNode", permitAllUsers, (req, res) => {
+  if (req.body.method === "post") {
+    Axios.post(req.body.url, req.body.data)
+      .then((result) => {
+        res.json({ stdout: result.data, status: "success" });
+      })
+      .catch((error) => {
+        res.json({ message: error, status: "error" });
+      });
+  } else {
+    Axios.get(req.body.url, { params: req.body.data })
+      .then((result) => {
+        res.json({ stdout: result.data, status: "success" });
+      })
+      .catch((error) => {
+        res.json({ message: error, status: "error" });
+      });
+  }
+});
+
+app.post("/compileRun", permitAllUsers, (req, res) => {
+  console.log("compile run recieved");
+  res.setHeader("Content-Type", "application/json");
+  const lang = req.body.lang;
+  const sourceCode = req.body.sourceCode;
+  const stdin = req.body.stdin;
+  let callBackUrl = "";
+  Axios.post("https://ide.ctfhub.io/api/new", {
+    lang: lang,
+    source: sourceCode,
+    stdin: stdin,
+  })
+    .then((res1) => {
+      callBackUrl = res1.data.data.callbackUrl;
+      const count = 100;
+      const request = async (count) => {
+        if (count === 0) {
+          res.json({
+            stdout: "Timeout error",
+            status: "success",
+          });
+        }
+        await sleep(1000);
+        Axios.get(callBackUrl)
+          .then((result) => {
+            if (result.data.status !== "pending") res.json(result.data);
+            else {
+              request(--count);
+            }
+          })
+          .catch((err) => res.json(err));
+      };
+      request(count);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});

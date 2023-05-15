@@ -1,0 +1,447 @@
+{
+    "source": "mockoon:1.17.0",
+    "data": [
+        {
+            "type": "environment",
+            "item": {
+                "uuid": "dd735980-ff7a-4bfd-aed0-83c5d6f7d65a",
+                "lastMigration": 19,
+                "name": "Online editor",
+                "endpointPrefix": "api",
+                "latency": 0,
+                "port": 5000,
+                "hostname": "0.0.0.0",
+                "routes": [
+                    {
+                        "uuid": "87f91ac7-6c63-4d68-b31d-0e538d1fd922",
+                        "documentation": "",
+                        "method": "post",
+                        "endpoint": "users/login",
+                        "responses": [
+                            {
+                                "uuid": "de71e1b5-63b1-4a85-9bec-16e8ad9a8fd6",
+                                "body": "{\n  \"success\": true,\n  \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJpZCI6IjEyMyIsIm5hbWUiOiJKb2huIERvZSIsInVzbiI6IjEyMyIsImlzUHJvZmVzc29yIjp0cnVlfQ.jPZEzgJ-nRLrusrbqwxHOcKdE7eP9--jOVnhcU-GbtU\"\n}",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "Professor",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            },
+                            {
+                                "uuid": "918c758e-fd2c-4837-9296-bd11c7593522",
+                                "body": "{\n  \"success\": true,\n  \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJpZCI6IjEyMyIsIm5hbWUiOiJKb2huIERvZSIsInVzbiI6IjEyMyIsImlzUHJvZmVzc29yIjpmYWxzZX0.gs-Cu5P1JZ5NEK7IljYJTt34YlA4mfWf9QVdKMnn-Ok\"\n}",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "Student",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "e7fe6002-14c7-49a1-8cb6-b96787f42f28",
+                        "documentation": "",
+                        "method": "post",
+                        "endpoint": "fetch-courses",
+                        "responses": [
+                            {
+                                "uuid": "e8302842-052f-4630-a2a9-49678ce89dc5",
+                                "body": "[{\n  \"id\":\"1\",\n  \"name\":\"Course 1\",\n  \"professor\":\"John Doe\",\n  \"details\":\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\"\n}]",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [
+                                    {
+                                        "target": "header",
+                                        "modifier": "Authorization",
+                                        "value": "Bearer 123",
+                                        "operator": "equals"
+                                    }
+                                ],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "12233d3c-6ca1-4a76-9ed1-0b6bcbe3bfe0",
+                        "documentation": "",
+                        "method": "post",
+                        "endpoint": "fetch-course",
+                        "responses": [
+                            {
+                                "uuid": "79a1c5e4-62bb-44fc-ad6b-a725bd420dcc",
+                                "body": "{\n  \"id\":\"1\",\n  \"name\":\"Course 1\",\n  \"professor\": \"Jhon Doe\",\n  \"details\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\",\n  \"materials\":[],\n  \"assignments\":[\n    {\n      \"id\":\"1\",\n      \"deadline\":\"2021-11-04T15:01\",\n      \"startDate\":\"2021-11-03T15:01\",\n      \"title\":\"Test1\",\n      \"attemptsLeft\":1,\n      \"totalAttempts\":2,\n      \"tags\":[\"Java\",\"Data Structures\"]\n    },\n    {\n      \"id\":\"2\",\n      \"deadline\":\"2021-11-03T15:01\",\n      \"startDate\":\"2021-11-03T15:01\",\n      \"title\":\"Test2\",\n      \"attemptsLeft\":0,\n      \"totalAttempts\":2,\n      \"tags\":[\"C++\",\"Data Structures\"]\n    }\n    \n    ]\n}",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "77985e75-1062-49c4-b2b1-5290464a44f4",
+                        "documentation": "",
+                        "method": "post",
+                        "endpoint": "update-assignment",
+                        "responses": [
+                            {
+                                "uuid": "42a9de0d-bee5-49b3-bdc3-ccce41939976",
+                                "body": "{\n    \"success\":true\n}",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            },
+                            {
+                                "uuid": "1e896d20-e4c2-4f1f-8e2a-8a55c07769e4",
+                                "body": "{\n  \"error\":\"Something went wrong\"\n}",
+                                "latency": 0,
+                                "statusCode": 500,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "92d27512-3c5d-45cb-9f5b-7ef5f3495351",
+                        "documentation": "",
+                        "method": "post",
+                        "endpoint": "add-assignment",
+                        "responses": [
+                            {
+                                "uuid": "c9fc3d18-662c-406c-a3e6-53dbea4def93",
+                                "body": "{\n    \"id\":\"3\",\n    \"success\":true\n}",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "380afcde-6328-404a-beef-f087d9af60d8",
+                        "documentation": "",
+                        "method": "post",
+                        "endpoint": "update-course",
+                        "responses": [
+                            {
+                                "uuid": "5b573d35-b992-4bfd-81db-134205c39abc",
+                                "body": "{\n  \"success\": true\n}",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "491a68f5-0cfc-4dc1-ac14-328145731006",
+                        "documentation": "",
+                        "method": "get",
+                        "endpoint": "test/:testId/fetch-coding-questions",
+                        "responses": [
+                            {
+                                "uuid": "dab13979-54e2-456c-a27d-cb36633f701a",
+                                "body": "[\n  {\n    \"id\":\"1\",\n    \"title\":\"Test1\",\n    \"description\":\"Test description\",\n    \"inputFormat\":\"TEst\",\n    \"outputFormat\":\"Test\",\n    \"testCases\":[\n      {\n        \"id\":\"1\",\n        \"input\":\"123\",\n        \"expectedOutput\":\"321\",\n        \"hidden\":false\n      }],\n    \"samples\":[\n      {\n        \"id\":\"1\",\n        \"input\":\"123\",\n        \"output\":\"321\",\n        \"explanation\":\"Reverse The Numbers\"\n      },\n      {\n        \"id\":\"2\",\n        \"input\":\"456\",\n        \"output\":\"654\",\n        \"explanation\":\"Reverse The Numbers\"\n      }\n      ]\n  },\n  {\n    \"id\":\"2\",\n    \"title\":\"Test2\",\n    \"description\":\"Test description\",\n    \"inputFormat\":\"TEst\",\n    \"outputFormat\":\"Test\",\n    \"testCases\":[\n      {\n        \"id\":\"2\",\n        \"input\":\"123\",\n        \"expectedOutput\":\"321\\n1\",\n        \"hidden\":true\n      }],\n    \"samples\":[\n      {\n        \"id\":\"3\",\n        \"input\":\"123\",\n        \"output\":\"321\",\n        \"explanation\":\"Reverse The Numbers\"\n      }\n      ]\n  }\n]",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "1af1dca3-36c7-4beb-8126-02f7586dcea8",
+                        "documentation": "",
+                        "method": "post",
+                        "endpoint": "test/:testId/add-coding-question",
+                        "responses": [
+                            {
+                                "uuid": "ee105b4d-ba89-47ff-a26e-ea547496292f",
+                                "body": "{\n  \"id\":\"3\",\n  \"success\":true\n}",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "40528a6a-6638-48ed-b7c8-b87d75552266",
+                        "documentation": "",
+                        "method": "post",
+                        "endpoint": "test/:questionId/add-sample",
+                        "responses": [
+                            {
+                                "uuid": "6d4dc3be-8364-45aa-91a9-a6c029bd91a3",
+                                "body": "{\n  \"id\":\"4\",\n  \"success\":true\n}",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "26478064-b2ee-46d3-b6df-0059e334a644",
+                        "documentation": "",
+                        "method": "post",
+                        "endpoint": "test/:questionId/delete-sample",
+                        "responses": [
+                            {
+                                "uuid": "515c33b8-7181-48c5-b001-15cfba0a4b4f",
+                                "body": "{\n  \"success\":true\n}",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "e13ca6b9-7688-4a2e-94b9-a41bd117ef75",
+                        "documentation": "",
+                        "method": "post",
+                        "endpoint": "test/:questionId/delete-test-case",
+                        "responses": [
+                            {
+                                "uuid": "000717e7-7fc8-48c5-87b1-4b5e792bfb87",
+                                "body": "{\n  \"success\":true\n}",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "111b2ac1-9b5e-4822-876b-a057126772ab",
+                        "documentation": "",
+                        "method": "post",
+                        "endpoint": "test/:questionId/add-test-case",
+                        "responses": [
+                            {
+                                "uuid": "972a7a50-9f98-4d64-8ddf-d87119f14e1d",
+                                "body": "{\n  \"id\":\"6\",\n  \"success\":true\n}",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "839a513f-cd6a-48d8-9de1-1dc8393da1de",
+                        "documentation": "",
+                        "method": "post",
+                        "endpoint": "test/:questionId/change-test-case-visibility",
+                        "responses": [
+                            {
+                                "uuid": "c6acc809-0b7d-4ba1-829d-43504d66f550",
+                                "body": "{\n  \"success\":true\n}",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "8eae7a5c-dc2b-49ac-ae45-f48b4ecf255c",
+                        "documentation": "",
+                        "method": "post",
+                        "endpoint": "test/:questionId/update-coding-question-details",
+                        "responses": [
+                            {
+                                "uuid": "bfcd1513-74f9-43ee-a063-4320f44a1ba4",
+                                "body": "{\n  \"success\":true\n}",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    }
+                ],
+                "proxyMode": false,
+                "proxyHost": "",
+                "proxyRemovePrefix": false,
+                "cors": true,
+                "headers": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Access-Control-Allow-Origin",
+                        "value": "*"
+                    },
+                    {
+                        "key": "Access-Control-Allow-Methods",
+                        "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+                    },
+                    {
+                        "key": "Access-Control-Allow-Headers",
+                        "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+                    }
+                ],
+                "proxyReqHeaders": [
+                    {
+                        "key": "",
+                        "value": ""
+                    }
+                ],
+                "proxyResHeaders": [
+                    {
+                        "key": "",
+                        "value": ""
+                    }
+                ],
+                "tlsOptions": {
+                    "enabled": false,
+                    "type": "CERT",
+                    "pfxPath": "",
+                    "certPath": "",
+                    "keyPath": "",
+                    "caPath": "",
+                    "passphrase": ""
+                }
+            }
+        }
+    ]
+}

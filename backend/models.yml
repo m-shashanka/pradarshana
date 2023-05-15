@@ -1,0 +1,55 @@
+Course:
+  Title: string
+  description: Long string
+  creatorId: _id
+  isAccessibleToAll: boolean
+
+Test:
+  creatorId: _id
+  courseId: _id
+  isAccessibleToAll: boolean
+  title: string
+  startTime: date
+  timeInterval: minutes/hours # we calculate the deadline with these details
+
+CodingQuestion:
+  testId: _id
+  question: string
+  description: Long string
+  testcases: [ ]
+  timeConsumed: time
+
+# when teacher fetches, it should return the expectedAnswers as well
+# and should not return on student fetches
+mcqs:
+  testId: _id
+  question: string
+  options: [ ]
+  expectedAnswer: string
+
+descriptiveQuestion:
+  testId: _id
+  question: string
+
+### for a test -> data from codingQuestion, mcqs and descriptiveQuestion should be fetched at once
+
+submission: # currently detail
+  testId: _id
+  codingQuestion: details
+  mcqs: details
+  descriptiveQuestions: details
+
+user:
+  name: string
+  usn: string
+  email: email
+  # not to be retrieved on fetch
+  password: string
+  # cannot be changes, only admin can change
+  roles: [string]
+  # lazy load
+  tests: [{id: _id, status: [notStarted, attempted, completed], lastUpdated: date}, postCompletionScore: string]],
+  enabled: boolean
+
+# update only required field on submission
+
